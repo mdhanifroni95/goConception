@@ -1,11 +1,18 @@
 package main
 
-import "fmt"
+import (
+	"fmt"
+
+	"example/mathLib" // Adjust the import path according to your project structure
+)
 
 // func add(num1 int, num2 int) {
 // 	sum := num1 + num2
 // 	fmt.Println(sum)
 // }
+
+var f int = 14
+var g int = 15
 
 func add(num1 int, num2 int) int {
 	sum := num1 + num2
@@ -30,7 +37,7 @@ func main() {
 	name = false
 	// name = "this"
 	const pi = 3.14
-	const greeting = "Hello"
+	// const greeting = "Hello"
 	var x, y int = 1, 2
 	var (
 		a = 10
@@ -54,10 +61,14 @@ func main() {
 
 	C := 30
 	d := 40
+	// h := 50
 	sum := add(C, d)
 	println(sum)
+	// add(f, h)
 	sum1, mul := getNumber(C, d)
 	println(sum1)
 	println(mul)
 	seyHello("Rony")
+	fmt.Println("showing custom function")
+	mathLib.MathFu(798, 39) // Assuming mathLib is imported correctly
 }
