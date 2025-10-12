@@ -17,28 +17,45 @@ import "fmt"
 // 	return s
 // }
 
+func changeSlice(p []int) []int {
+	p[0] = 10
+	p = append(p, 11)
+	return p
+
+}
+
+// Variadic Function
+func sum(numbers ...int) {
+	fmt.Println(numbers, "length", len(numbers), "capacity", cap(numbers))
+	total := 0
+	for _, num := range numbers {
+		total += num
+	}
+	fmt.Println("total", total)
+}
+
 func main() {
-	arr := [6]string{"this", "is", "a", "interview", "questions"}
-	fmt.Println("arr", arr)
+	// arr := [6]string{"this", "is", "a", "interview", "questions"}
+	// fmt.Println("arr", arr)
 
-	s := arr[0:4]
-	s1 := s[4:6]
-	s1 = append(s1, "read", "code", "debug")
-	s2 := s1[2:4]
+	// s := arr[0:4]
+	// s1 := s[4:6]
+	// s1 = append(s1, "read", "code", "debug")
+	// s2 := s1[2:4]
 
-	fmt.Println("arr", arr, "length arr", len(arr), "capacity arr", cap(arr))
+	// fmt.Println("arr", arr, "length arr", len(arr), "capacity arr", cap(arr))
 	// fmt.Printf("Address of slice variable Array: %p\n", &arr)
 	// fmt.Printf("Address of underlying array Array: %p\n", &arr[0])
 
-	fmt.Println("slice 1", s, "length slice 1", len(s), "capacity slice 1", cap(s))
+	// fmt.Println("slice 1", s, "length slice 1", len(s), "capacity slice 1", cap(s))
 	// fmt.Printf("Address of slice variable slice1: %p\n", &s)
 	// fmt.Printf("Address of underlying array slice1: %p\n", &s[0])
 
-	fmt.Println("slice 2", s1, "length slice 2", len(s1), "capacity slice 2", cap(s1))
+	// fmt.Println("slice 2", s1, "length slice 2", len(s1), "capacity slice 2", cap(s1))
 	// fmt.Printf("Address of slice variable slice2: %p\n", &s1)
 	// fmt.Printf("Address of underlying array slice2: %p\n", &s1[0])
 
-	fmt.Println("slice 3", s2, "length slice 3", len(s2), "capacity slice 3", cap(s2))
+	// fmt.Println("slice 3", s2, "length slice 3", len(s2), "capacity slice 3", cap(s2))
 	// fmt.Printf("Address of slice variable slice2: %p\n", &s1)
 	// fmt.Printf("Address of underlying array slice2: %p\n", &s1[0])
 
@@ -106,10 +123,45 @@ func main() {
 	// fmt.Println("slice", slice, "len:", len(slice), "cap:", cap(slice))
 
 	//make function into initial slice
-	// sliceMak := make([]int, 3, 5)
-	// sliceMak[0] = 6
-	// sliceMak[2] = 9
-	// fmt.Println("sliceMak", sliceMak, len(sliceMak), cap(sliceMak))
+	// sliceMake := make([]int, 3, 5)
+	// fmt.Println("slice make by make function", sliceMake, "length", len(sliceMake), "capacity", cap(sliceMake))
+	// sliceMake[2] = 39
+	// fmt.Println("slice", sliceMake)
+
+	//example number 1
+	/**
+	x := []int{}
+	x = append(x, 10)
+	x = append(x, 20)
+	fmt.Println("x", x)
+
+	x = append(x, 19)
+	fmt.Println("x", x)
+	y := x
+	x = append(x, 30)
+	fmt.Println("x", x)
+	y = append(y, 56)
+
+	x[0] = 24
+
+	fmt.Println("x", x)
+	fmt.Println("y", y)
+	*/
+
+	//example two
+
+	x := []int{1, 2, 3, 4, 5}
+	x = append(x, 6)
+	// fmt.Println("length", len(s), "capacity", cap(s))
+	x = append(x, 7)
+	a := x[4:]
+	y := changeSlice(a)
+
+	fmt.Println("x", x)
+	fmt.Println("y", y)
+	sum(2, 3, 4)
+
+	fmt.Println(x[0:10])
 }
 
 /*
@@ -127,4 +179,7 @@ func main() {
 1. slice from an existing array
 2. slice from a slice
 3. slice literal
+4. make function with length
+5. make function with length and capacity
+6. empty slice and nil slice
 */
