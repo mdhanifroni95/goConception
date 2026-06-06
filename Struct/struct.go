@@ -2,30 +2,21 @@ package main
 
 import "fmt"
 
-type User struct {
+type Person struct {
 	Name string
 	Age  int
 }
 
 func main() {
-	u1 := User{Name: "Alice", Age: 30}
-	u2 := User{Name: "Rimsha", Age: 6}
-	// fmt.Println("Name", u1.Name)
-	// fmt.Println("Age", u1.Age)
-	fmt.Println("u1", u1)
-	fmt.Println("Name", u2.Name)
-	fmt.Println("Age", u2.Age)
-	// u2 := User{Name: "Rimsha", Age: 06}
+	p1 := Person{Name: "Join", Age: 9}
+	fmt.Println("Name", p1.Name, "Age", p1.Age)
+	var p2 Person
+	p2.Name = "Tom"
+	p2.Age = 10
+	fmt.Println(p2)
 
-	emp := struct {
-		Id   int
-		Role string
-	}{Id: 1, Role: "Developer"}
-	fmt.Println("emp", emp)
-	u1.Greet()
-	u2.Greet()
-}
-
-func (u User) Greet() {
-	fmt.Println("Hello, my name is", u.Name)
+	p3 := &Person{Name: "Hassan", Age: 40}
+	fmt.Println(p3.Name)
+	p3.Age = 45
+	fmt.Println(p3.Age)
 }
